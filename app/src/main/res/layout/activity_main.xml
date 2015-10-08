@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:padding="30dp"
         android:background="#82ffffff"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="50dp">
 
         <TextView
             android:layout_width="wrap_content"
