@@ -15,6 +15,9 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup sexRadioGroup;
     private Spinner ageSpinner;
 
+    private String userString, passwordString, nameString, emailString,
+            weightString, heightString, sexString, ageString;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +30,37 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void bindWidget() {
 
+        userEditText = (EditText) findViewById(R.id.edtUserSign);
+        passwordEditText = (EditText) findViewById(R.id.edtPassSign);
+        nameEditText = (EditText) findViewById(R.id.edtNameSign);
+        emailEditText = (EditText) findViewById(R.id.edtEmailSign);
+        weightEditText = (EditText) findViewById(R.id.edtWeight);
+        heightEditText = (EditText) findViewById(R.id.edtHeight);
+
     }
 
     public void clickSave(View view) {
 
+        //Get Value From Edit text
+        userString = userEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+        nameString = nameEditText.getText().toString().trim();
+        emailString = emailEditText.getText().toString().trim();
+        weightString = weightEditText.getText().toString().trim();
+        heightString = heightEditText.getText().toString().trim();
+
+        //Check Zero
+        if (userString.equals("") || passwordString.equals("") || nameString.equals("") || emailString.equals("") || weightString.equals("") || heightString.equals("") ) {
+
+            //Have Space
+            MyDialog objMyDialog = new MyDialog();
+            objMyDialog.errorDialog(SignUpActivity.this, "มีช่องว่าง", "กรุณากรอกให้ครบ");
+
+        } else {
+
+            //No Space
+
+        }
 
 
     }   // clickSave
