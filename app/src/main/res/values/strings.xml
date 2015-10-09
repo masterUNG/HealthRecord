@@ -18,6 +18,13 @@
     <string name="height">ส่วนสูง (เซ็นติเมตร)</string>
     <string name="save">บันทึกข้อมูล</string>
 
+    <string name="title_record">พฤติกรรมประจำวัน</string>
+    <string name="sleep">การนอน</string>
+    <string name="food">อาหาร</string>
+    <string name="exercise">ออกกำลังกาย</string>
+    <string name="drink">การดื่มน้ำ</string>
+    <string name="monitor">การอยู่หน้าจอ</string>
+
 
 
 </resources>
