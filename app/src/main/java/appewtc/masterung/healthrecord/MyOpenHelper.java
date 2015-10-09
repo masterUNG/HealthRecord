@@ -12,7 +12,7 @@ public class MyOpenHelper extends SQLiteOpenHelper{
     //Explicit
     private static final String DATABASE_NAME = "Health.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String CREATE_USER_TABLE = "create table userTABLE (_id integer primary key, User text, Password text, Name text, Age text, Sex text, Weight text, Height text);";
+    private static final String CREATE_USER_TABLE = "create table userTABLE (_id integer primary key, User text, Password text, Name text, Age text, Sex text, Weight text, Height text, Email text);";
 
 
     public MyOpenHelper(Context context) {

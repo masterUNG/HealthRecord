@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void testAddValue() {
 
-        objUserTABLE.addNewUser("User", "Password", "Name", "Age", "Sex", "Weight", "Height");
+        objUserTABLE.addNewUser("User", "Password", "Name", "Age", "Sex", "Weight", "Height", "Email");
 
     }
 
