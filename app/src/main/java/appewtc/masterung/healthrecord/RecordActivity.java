@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -16,8 +17,12 @@ public class RecordActivity extends AppCompatActivity {
 
     //Explicit
     private TextView showTimeTextView;
-    private String currentTimeString, sleepString;
-    private Spinner sleepSpinner;
+    private String currentTimeString, sleepString,
+            breakfastString = null, lunchString = null, dinnerString = null,
+            timeExerciseString, typeExerciseString;
+    private Spinner sleepSpinner, exerciseSpinner;
+    private EditText breakfastEditText, lunchEditText, dinnerEditText,
+            timeExerciseEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +38,41 @@ public class RecordActivity extends AppCompatActivity {
         //Create Sleep Spinner
         createSleepSpinner();
 
+        //Create Exercise Spinner
+        createExerciseSpinner();
+
     }   // onCreate
 
-    public void clickSaveRecord(View view) {
+    private void createExerciseSpinner() {
 
+        final String[] strExercise = new String[3];
+        strExercise[0] = "เบา";
+        strExercise[1] = "ปานกลาง";
+        strExercise[2] = "หนัก";
+        ArrayAdapter<String> exerciseAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strExercise);
+        exerciseSpinner.setAdapter(exerciseAdapter);
+        exerciseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                typeExerciseString = strExercise[i];
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                typeExerciseString = strExercise[0];
+            }
+        });
 
     }
 
+    public void clickSaveRecord(View view) {
 
+        breakfastString = breakfastEditText.getText().toString().trim();
+        lunchString = lunchEditText.getText().toString().trim();
+        dinnerString = dinnerEditText.getText().toString().trim();
+        timeExerciseString = timeExerciseEditText.getText().toString().trim();
+
+    }
 
 
     private void createSleepSpinner() {
@@ -74,6 +105,13 @@ public class RecordActivity extends AppCompatActivity {
     private void bindWidget() {
         showTimeTextView = (TextView) findViewById(R.id.txtShowTime);
         sleepSpinner = (Spinner) findViewById(R.id.spinner);
+        breakfastEditText = (EditText) findViewById(R.id.editText);
+        lunchEditText = (EditText) findViewById(R.id.editText2);
+        dinnerEditText = (EditText) findViewById(R.id.editText3);
+        exerciseSpinner = (Spinner) findViewById(R.id.spinner3);
+        timeExerciseEditText = (EditText) findViewById(R.id.editText4);
+
+
     }
 
 }   // Main Class
