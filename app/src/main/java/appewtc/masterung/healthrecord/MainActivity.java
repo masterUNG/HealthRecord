@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     //Explicit
     private UserTABLE objUserTABLE;
-    private String TAG = "Health";
+    private String TAG = "Health", userString, passwordString;
+    private EditText userEditText, passwordEditText;
+    private MyDialog objMyDialog = new MyDialog();
 
 
 
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Bind Widget
+        bindWidget();
 
         //Create & Connected Database
         createDatabase();
@@ -47,9 +53,51 @@ public class MainActivity extends AppCompatActivity {
 
     }   // onCreate
 
+    private void bindWidget() {
+        userEditText = (EditText) findViewById(R.id.edtUserMain);
+        passwordEditText = (EditText) findViewById(R.id.edtPasswordMain);
+    }
+
+    public void clickLogin(View view) {
+
+        userString = userEditText.getText().toString().trim();
+        passwordString = passwordEditText.getText().toString().trim();
+
+        if (userString.equals("") || passwordString.equals("")) {
+            objMyDialog.errorDialog(MainActivity.this, "Have Space", "Please Fill All Every Blank");
+        } else {
+
+            //Check User
+            checkUser();
+
+        }
+
+    }
+
+    private void checkUser() {
+        try {
+
+            String[] strMyResult = objUserTABLE.searchUser(userString);
+
+            if (passwordString.equals(strMyResult[2])) {
+
+                // Intent To Service
+                Intent objIntent = new Intent(MainActivity.this, MyServiceActivity.class);
+                objIntent.putExtra("Name", strMyResult[3]);
+                startActivity(objIntent);
+                finish();
+
+            } else {
+                objMyDialog.errorDialog(MainActivity.this, "Password False", "Please Try Again Password False");
+            }
+
+        } catch (Exception e) {
+            objMyDialog.errorDialog(MainActivity.this, "No This User", "No " + userString + " in my Database");
+        }
+    }
+
+
     //Active When Restart
-
-
     @Override
     protected void onRestart() {
         super.onRestart();

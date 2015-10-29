@@ -6,7 +6,7 @@
     <string name="Pass">Password :</string>
     <string name="Sign_up">Sign up</string>
     <string name="Sign_in">Sign in</string>
-    
+
     <string name="title_signup">สมัครสมาชิค</string>
     <string name="name">ชื่อ นามสุกล</string>
     <string name="email">eMail</string>
@@ -24,7 +24,6 @@
     <string name="exercise">ออกกำลังกาย</string>
     <string name="drink">การดื่มน้ำ</string>
     <string name="monitor">การอยู่หน้าจอ</string>
-
 
 
 </resources>

@@ -35,7 +35,7 @@
         <EditText
             android:layout_width="@dimen/edit_text"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/edtUserMain"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:hint="@string/User"
@@ -44,7 +44,7 @@
         <EditText
             android:layout_width="@dimen/edit_text"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/edtPasswordMain"
             android:layout_gravity="center_horizontal"
             android:hint="@string/Pass"
             android:inputType="textPassword"
@@ -68,6 +68,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="clickLogin"
             android:text="@string/Sign_in"
             android:id="@+id/button2"
             android:layout_weight="1" />
