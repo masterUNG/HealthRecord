@@ -47,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
 
     }   // onCreate
 
+    //Active When Restart
+
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        deleteAllData();
+
+        synJSONtoSQLite();
+
+    }
+
     private void deleteAllData() {
         SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("Health.db", MODE_PRIVATE, null);
         objSqLiteDatabase.delete("userTABLE", null, null);

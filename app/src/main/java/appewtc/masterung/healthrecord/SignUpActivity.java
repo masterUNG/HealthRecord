@@ -214,6 +214,8 @@ public class SignUpActivity extends AppCompatActivity {
 
             Toast.makeText(SignUpActivity.this, "Update New Value Successful", Toast.LENGTH_LONG).show();
 
+            finish();
+
         } catch (Exception e) {
             Toast.makeText(SignUpActivity.this, "Cannot Update To mySQL", Toast.LENGTH_LONG).show();
         }
