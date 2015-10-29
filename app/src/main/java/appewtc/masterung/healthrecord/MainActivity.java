@@ -1,6 +1,7 @@
 package appewtc.masterung.healthrecord;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,10 +39,18 @@ public class MainActivity extends AppCompatActivity {
         //Test Add Value SQLite
         testAddValue();
 
+        //Delete All Data
+        deleteAllData();
+
         //Synchronize JSON to SQLite
         synJSONtoSQLite();
 
     }   // onCreate
+
+    private void deleteAllData() {
+        SQLiteDatabase objSqLiteDatabase = openOrCreateDatabase("Health.db", MODE_PRIVATE, null);
+        objSqLiteDatabase.delete("userTABLE", null, null);
+    }
 
     private void synJSONtoSQLite() {
 
