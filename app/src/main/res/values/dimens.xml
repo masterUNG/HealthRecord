@@ -12,4 +12,6 @@
     <dimen name="logo">120dp</dimen>
     <dimen name="edit_text">230dp</dimen>
 
+    <dimen name="margin">20dp</dimen>
+
 </resources>

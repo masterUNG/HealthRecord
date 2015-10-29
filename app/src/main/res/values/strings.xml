@@ -25,5 +25,16 @@
     <string name="drink">การดื่มน้ำ</string>
     <string name="monitor">การอยู่หน้าจอ</string>
 
+    <string name="my_service">บริการ ของฉัน</string>
+    <string name="save1">บันทึกประจำวัน</string>
+    <string name="history">ประวัติการบันทึก</string>
+
+    <string name="morning">อาหารเช้า</string>
+    <string name="lunch">อาหารกลางวัน</string>
+    <string name="dinner">อาหารเย็น</string>
+    <string name="time">เวลาในการออกกำลังกาย</string>
+    <string name="alcoho">วันนี่คุณ ดื่ม แอลกอฮอล์ หรือยัง</string>
+    <string name="chicklet">วันนี่คุณ สูบบุหรี หรือยัง</string>
+
 
 </resources>
